@@ -8,9 +8,9 @@ import {
 } from "@heroicons/react/24/outline";
 import { Navigate, NavLink, Outlet } from "react-router-dom";
 import { useStateContext } from "../contexts/ContextProvider";
-import axiosClient from "../axios";
+//import axiosClient from "../axios";
 import { useEffect } from "react";
-import Toast from "./Toast";
+//import Toast from "./Toast";
 
 const navigation = [
   { name: "Dashboard", to: "/" },
@@ -25,6 +25,9 @@ export default function DefaultLayout() {
   const { currentUser, userToken, setCurrentUser, setUserToken } =
     useStateContext();
 
+
+    {/* dole funkcija omogucava da ne mozemo da pristupimo nekoj stranici ako nismo ulogovani
+  prilikom pokusaja da prestupimo putem url-a nekoj stranici vraca na login*/ }
   if (!userToken) {
     return <Navigate to="login" />;
   }

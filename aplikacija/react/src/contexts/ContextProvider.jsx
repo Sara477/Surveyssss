@@ -1,4 +1,6 @@
-const { createContext, useState, useContext } = require("react");
+
+import { createContext, useState, useContext } from "react";
+
 
 const StateContext = createContext({
     currentUser: {},
@@ -23,4 +25,4 @@ export const ContextProvider=({children})=>{
     )
 }
 
-export const userStateContext=()=> useContext(StateContext)
+export const useStateContext=()=> useContext(StateContext)
