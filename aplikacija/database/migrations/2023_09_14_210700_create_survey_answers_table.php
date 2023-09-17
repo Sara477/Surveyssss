@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('surveys', function (Blueprint $table) {
+        Schema::create('survey_answers', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignIdFor(\App\Models\Survey::class, 'survey_id');
+            $table->timestamp('start_date')->nullable();
+            $table->timestamp('end_date')->nullable();
         });
     }
 
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('surveys');
+        Schema::dropIfExists('survey_answers');
     }
 };
